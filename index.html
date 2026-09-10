@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Exploring Career Options | Beacon of Hope Christian School</title>
+<style>
+:root{--navy:#12355b;--blue:#1f6fb2;--light:#eef6fc;--gold:#d9a441;--ink:#1f2937;--ok:#157347;--bad:#b42318}
+*{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f5f7fa;color:var(--ink)}
+header{background:linear-gradient(135deg,var(--navy),var(--blue));color:white;padding:28px 18px;text-align:center}
+header h1{margin:0 0 6px;font-size:2rem} header p{margin:4px}
+.wrap{max-width:1050px;margin:auto;padding:20px}.card{background:white;border-radius:14px;padding:20px;margin:16px 0;box-shadow:0 4px 16px #00000012}
+h2{color:var(--navy);border-bottom:3px solid var(--gold);padding-bottom:7px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.term{background:var(--light);padding:12px;border-radius:10px}.q{padding:14px 0;border-bottom:1px solid #e5e7eb}.q:last-child{border:0}
+label{display:block;margin:7px 0;cursor:pointer}button{background:var(--blue);color:#fff;border:0;padding:11px 16px;border-radius:9px;font-weight:bold;cursor:pointer;margin:5px}
+button.secondary{background:#64748b}.feedback{font-weight:bold;margin-top:8px}.correct{color:var(--ok)}.wrong{color:var(--bad)}
+#score{font-size:1.15rem;font-weight:bold;margin:12px 0}.verse{font-style:italic;background:#fff8e7;border-left:5px solid var(--gold);padding:14px}
+input[type=text],textarea{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px} footer{text-align:center;padding:24px;color:#64748b}
+</style></head><body>
+<header><h1>Exploring Career Options</h1><p>Personal Financial Literacy - Unit 2: Careers and Income</p><p>Beacon of Hope Christian School</p></header>
+<div class="wrap">
+<div class="card verse"><b>Romans 8:28</b><br>Think about how your skills, talents, interests, education, and wise counsel can guide responsible career decisions.</div>
+<div class="card"><h2>Learning Goals</h2><div class="grid">
+<div class="term">Identify resources for researching careers.</div><div class="term">Explore and compare career options.</div>
+<div class="term">Analyze how education and skills affect income.</div><div class="term">Explain how supply and demand can affect wages.</div></div></div>
+<div class="card"><h2>Vocabulary</h2><div class="grid">
+<div class="term"><b>Career</b><br>An occupation or profession that usually requires special training.</div>
+<div class="term"><b>Demand</b><br>The desire or need for a product or service.</div>
+<div class="term"><b>Income</b><br>Money received for work, products sold, rent, investments, and other sources.</div>
+<div class="term"><b>Mean</b><br>An average.</div><div class="term"><b>Occupation</b><br>A person's usual work or business.</div>
+<div class="term"><b>Salary</b><br>A fixed amount periodically paid for work.</div><div class="term"><b>Supply</b><br>The amount available.</div>
+<div class="term"><b>Wages</b><br>Money received for work.</div></div></div>
+<div class="card"><h2>Practice Quiz</h2><div id="quiz"></div><div id="score"></div>
+<button onclick="grade()">Submit Quiz</button><button class="secondary" onclick="newQuiz()">New Random Quiz</button></div>
+<div class="card"><h2>Career Research Challenge</h2>
+<p>Choose a career that interests you. Record its job description, education/skill requirements, job outlook, advancement opportunities, salary, location/travel expectations, and positive impact on others.</p>
+<label>Career <input type="text"></label><label>Your research notes <textarea rows="7"></textarea></label></div>
+<div class="card"><h2>Reflection</h2><p>Why should income not be the only factor when choosing a career?</p><textarea rows="4"></textarea></div>
+</div><footer>Created for classroom practice - Exploring Career Options</footer>
+<script>
+const bank=[
+["Which is a resource for researching careers?",["School counselor","Random rumor","Car advertisement","Video game"],0,"Counselors are one of the lesson's career-research resources."],
+["Which question is important when researching a career?",["What is the job outlook?","What color is the office?","What car does the boss drive?","What is the employee's favorite snack?"],0,"Job outlook tells you about opportunities in the field."],
+["What does 'supply' mean?",["The amount available","The desire or need","An average","A fixed salary"],0,"Supply means the amount available."],
+["What does 'demand' mean?",["The desire or need","The amount available","Money from investments","An occupation"],0,"Demand is the desire or need for a product or service."],
+["Which factor can affect income?",["Education","Skills","Experience","All of these"],3,"The lesson identifies education, skills, and experience as income factors."],
+["If qualified-worker supply is low and employer demand is high, what may happen?",["Wages may be higher","Wages must be zero","Education stops mattering","Jobs disappear automatically"],0,"Low supply plus high demand can contribute to higher wages."],
+["Why can location affect salary?",["Cost of living differs by place","Every city pays the same","Location changes GPA","Location eliminates demand"],0,"Employers in higher-cost regions may pay more."],
+["What is job fulfillment?",["Satisfaction and meaningful impact from work","Only the paycheck","The number of employees","A type of wage"],0,"Career decisions should consider fulfillment as well as income."],
+["Which statement is most accurate?",["Lower supply always guarantees higher salary","Supply and demand both matter","Only GPA affects income","Career choice never affects salary"],1,"Both supply and demand are important, and the pattern is not universal."],
+["A salary is...",["a fixed amount periodically paid for work","any money received from any source","the amount of workers available","an average"],0,"Salary is a fixed amount periodically paid to a person for work."],
+["The lesson recommends researching...",["job description and education requirements","salary only","travel only","nothing before choosing"],0,"Good career exploration examines multiple dimensions."],
+["Which can be an advancement opportunity?",["Promotion to supervisor","Buying a new phone","Changing lunch","Driving farther"],0,"Advancement opportunities concern growth or promotion in a career."],
+["Why does experience often affect income?",["More experience can increase a worker's value and earning potential","Experience always lowers wages","Experience replaces all education","It has no relationship to work"],0,"The lesson states that more experience generally corresponds with higher income."],
+["Which is NOT identified as a factor affecting income in the lesson?",["Type of car you drive","Education","Skills","Supply and demand"],0,"The type of car you drive is not listed as an income factor."],
+["A job 'in demand' is more likely to have...",["job openings","no employer need","no required skills","a guaranteed salary"],0,"High demand makes openings more likely, though nothing is guaranteed."]
+];
+let chosen=[];
+function newQuiz(){
+ chosen=[...bank].sort(()=>Math.random()-.5).slice(0,10);
+ document.getElementById('score').textContent='';
+ document.getElementById('quiz').innerHTML=chosen.map((q,i)=>`<div class="q"><b>${i+1}. ${q[0]}</b>${q[1].map((a,j)=>`<label><input type="radio" name="q${i}" value="${j}"> ${a}</label>`).join('')}<div class="feedback" id="f${i}"></div></div>`).join('');
+}
+function grade(){
+ let score=0;
+ chosen.forEach((q,i)=>{
+  const sel=document.querySelector(`input[name=q${i}]:checked`), f=document.getElementById('f'+i);
+  if(sel && +sel.value===q[2]){score++;f.className='feedback correct';f.textContent='Correct - '+q[3];}
+  else{f.className='feedback wrong';f.textContent='Review: '+q[3]+' Correct answer: '+q[1][q[2]]+'.';}
+ });
+ document.getElementById('score').textContent=`Score: ${score} / ${chosen.length} (${Math.round(score/chosen.length*100)}%)`;
+ window.scrollTo({top:document.getElementById('score').offsetTop-100,behavior:'smooth'});
+}
+newQuiz();
+</script></body></html>
